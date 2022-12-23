@@ -14,8 +14,7 @@ In the United States, there exist racial disparities in kidney transplant access
 
 
 ## dGEM-disparity workflow 
-<img width="700" alt="image" src="https://user-images.githubusercontent.com/38872447/181802378-8a1499ce-0490-421e-8fc5-d6563da25543.png">
-
+<img width="550" alt="image" src="https://user-images.githubusercontent.com/38872447/209378844-1926563e-16be-400d-8336-f48500dcd4fb.png">
 
 
 

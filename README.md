@@ -1,28 +1,23 @@
 
-A federated learning algorithm to quantify racial disparities in kidney graft failure rates using US registry data from 29,468 patients across 149 transplant centers
+Learning Competing Risks Across Multiple Hospitals: One-Shot Distributed Algorithms
 ==============================================
 
 
 ## Outline
 1. Description
-2. dGEM-disparity workflow
+2. ODACoR workflow
 3. Data analysis results
 
 
 ## Description
-In the United States, there exist racial disparities in kidney transplant access and post-transplant outcomes between Black and White patients. Site of care is considered a key contributor to the disparities. Using multi-site data to examine the effect of site of care on racial disparities, hospital-specific effects are essential and usually estimated with a generalized linear mixed effect model. However, due to regulations for protecting patients’ privacy, patient-level data typically cannot be shared across centers/hospitals. As a result, we developed a federated learning framework, dGEM-disparity (decentralized algorithm for Generalized linear mixed Effect Model for disparity quantification). Consisting of two parts, dGEM-disparity first provides accurately estimated common effects and calibrated hospital-specific effects by requiring only aggregated data from each center, and then adopts a counterfactual modeling approach to assess whether the graft failure rates differ if Black patients had been admitted at transplant centers in the same distribution as White patients were admitted. With the Organ Procurement and Transplantation Network (OPTN) registry data collected on 35,497 patients from 200 transplant centers, we found that if Black patients had been admitted to the centers following the distribution of White patients, 29 fewer per 10,000 Black patients (95% CI: [27, 32]) would die or have graft failure within one year after receiving a kidney transplant on average. Our proposed dGEM-disparity is generally applicable to other disparities research related to differential access to care. 
+Time-to-event data, a frequently employed data type in clinical studies, serves as an essential source for investigating a wide range of outcomes, such as disease progression, adverse drug reactions, and hospital readmissions. Notably, when multiple time-to-event outcomes interplay, the competing risk model has advanced the analysis of multiple correlated events of interest. In the past decades, given the increasing number of distributed research networks, the exploration of multi-site studies focusing on time-to-event data analysis has emerged as a promising and essential research avenue. However, existing federated learning algorithms have been focused on analyses of a single outcome, without considering the complex interplay among multiple endpoints.
 
-
-## dGEM-disparity workflow 
-<img width="550" alt="image" src="https://user-images.githubusercontent.com/38872447/209378844-1926563e-16be-400d-8336-f48500dcd4fb.png">
-
-
-
-Workflow of the proposed decentralized algorithm for generalized mixed effect models framework for disparity quantification -- dGEM-disparity. This framework includes two main parts. Part I: the dGEM algorithm includes the initialization of the common effects (i.e., association between outcome and covariates) (Step I) and the estimation of center-effects (Step II) with the meta-analysis estimates of the common effects, following with a center-level calibration via shrinkage estimator. Part II, the counterfactual rates for disparity quantification are calculated with the estimates from Part I. The details of Step III in Part II are presented in the following section.
+## ODACoR workflow 
+![odacor_0917_1 (1)](https://github.com/Penncil/ODACoR/assets/23301533/40531f7d-bcb3-4b47-89d5-b003efa15b27)
 
 
 ## Data analysis results
-<img width="700" alt="image" src="https://user-images.githubusercontent.com/38872447/181802626-548d5cc2-b295-4c11-95a5-8b493564fa88.png">
+The current work creates new mathematical tools within a “one-shot distributed algorithms for competing risks model” (or ODACoR) for estimating the impact of risk factors on development of Long COVID. Applying these new algorithms to time-varying EHR data from children and youth, we find that the ODACoR approach surpasses meta-analysis, a more commonly used method, providing better identification of Long COVID risk factors and less bias in risk estimation, while also streamlining communication requirements across sites.
 
 
-The observed graft failure rate for the Black patients was 8.60%. The estimated counterfactual graft failure rate decreased by 0.29% (95% CI, [0.27%, 0.32%]), down to 8.31%. This means that if Black patients had been admitted to the centers following the distribution of White patients, 29 fewer per 10,000 Black patients (95% CI: [27, 32]) would have died or had graft failure within one year after receiving a kidney transplant on average.
+
